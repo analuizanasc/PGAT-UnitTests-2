@@ -47,8 +47,15 @@ const livros = [
 // 5) Escreva dois testes automatizados de unidade para testar as condições de envio incorreto de ID.
 // 6) Adicionar o Mochawesome para gerar relatórios em HTML.
 export function buscarTituloDoLivroPorID(id) {
-    if ( id <= 0) {
-        throw new Error('ID deve ser maior que 0')
+    if ( id == undefined || id<= 0 || id == null) {
+        throw new Error('ID deve ser informado e maior que 0')
     }
-    return livros.at(id).titulo
+
+    for ( let i =0; i< livros.length; i++){
+        if (livros[i].id == id){
+            return livros.at(i).titulo;
+        }
+
+    }
+    
 }
